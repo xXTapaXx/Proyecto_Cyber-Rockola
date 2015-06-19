@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect('welcome');
 });
 
+Route::get('home', function () {
+    return view('welcome');
+});
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
