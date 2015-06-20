@@ -16,14 +16,29 @@ Route::get('/', function () {
 });
 
 Route::get('home', function () {
-    return view('welcome');
+    return view('administrator/index');
 });
 
-Route::get('administrador', function () {
-    return view('administrador/index.blade.php');
-});
+//Route::get('artistas', 'ArtistasController@index');
+
+
+
+//Route::get('artistas', 'ArtistasController@index');
+//Route::get('artistas/create', 'ArtistasController@create');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::match(['get', 'post'],'artistas','ArtistasController@index');
+    Route::match(['get', 'post'],'artistas/create','ArtistasController@create');
+    Route::post('artistas','ArtistasController@store');
+    Route::get('artistas/{id}','ArtistasController@show');
+    //Route::match(['get', 'post'],'articles/{id}/edit','ArticlesController@edit');
+    //Route::put('articles/{id}','ArticlesController@update');
+    //Route::patch('articles/{id}','ArticlesController@update');
+    //Route::delete('articles/{id}','ArticlesController@destroy');
+});
