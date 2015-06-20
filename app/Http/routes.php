@@ -19,6 +19,10 @@ Route::get('home', function () {
     return view('welcome');
 });
 
+Route::get('administrador', function () {
+    return view('administrador/index.blade.php');
+});
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
