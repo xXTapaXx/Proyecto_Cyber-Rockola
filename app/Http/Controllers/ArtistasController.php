@@ -66,7 +66,12 @@ class ArtistasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artistas = Artista::find($id);
+        if(is_null($artistas))
+        {
+            abort(404);
+        }
+        return view('artistas.edit', compact('artistas'));
     }
 
     /**
@@ -75,9 +80,14 @@ class ArtistasController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+       $artistas = Artista::find($id);
+       $artistas->nombre = $request->input('nombre');
+       $artistas->genero = $request->input('genero');
+       $artistas->save();
+
+        return view('artistas.show', compact('artistas'));
     }
 
     /**

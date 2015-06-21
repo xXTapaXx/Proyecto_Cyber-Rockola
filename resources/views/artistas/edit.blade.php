@@ -1,3 +1,4 @@
+
 @extends('layouts.layout')
 
 @section('tittle_browser')
@@ -12,22 +13,23 @@ Index
     <h1>Nuevo artista</h1>
     <hr>
 
-    {!! Form::open(['url' => 'artistas']) !!}
+    {!! Form::open(['url' => 'artistas/update/'.$artistas->id, 'method' => 'PUT']) !!}
+
         <!-- Title Form Input -->
         <div class="form-group">
             {!! Form::label('nombre','Nombre: ')  !!}
-            {!! Form::text('nombre', null , ['class'=>'form-control'])  !!}
+            {!! Form::text('nombre', $artistas->nombre, ['class'=>'form-control'])  !!}
         </div>
 
         <!-- Body Form Input -->
         <div class="form-group">
             {!! Form::label('genero','Género: ')  !!}
-            {!! Form::text('genero', null , ['class'=>'form-control'])  !!}
+            {!! Form::text('genero', $artistas->genero, ['class'=>'form-control'])  !!}
         </div>
 
         <!-- Submit -->
         <div class="form-group">
-            {!! Form::submit('Agregar Artista', ['class'=>'btn btn-primary form-control'])  !!}
+            {!! Form::submit('Guardar Artista', ['class'=>'btn btn-primary form-control'])  !!}
         </div>
     {!! Form::close() !!}
 

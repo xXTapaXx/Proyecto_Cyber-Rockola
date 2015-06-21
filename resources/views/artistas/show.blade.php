@@ -1,4 +1,12 @@
-@extends('app')
+@extends('layouts.layout')
+
+@section('tittle_browser')
+Index
+@stop
+
+@section('menu')
+ @include('layouts.menuAdmin')
+@stop
 
 @section('content')
         <article>
@@ -7,4 +15,5 @@
                 {{ $artistas->genero }}
             </div>
         </article>
+        <a href="/artistas"><h2>Volver</h2></a>
 @stop

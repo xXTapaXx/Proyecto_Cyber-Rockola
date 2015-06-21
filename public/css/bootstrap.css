@@ -1599,7 +1599,8 @@ pre code {
 }
 .container-fluid {
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: 150px;
+    padding-top: 57px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -4396,8 +4397,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #222;
+  border-color: #000000;
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -4411,12 +4412,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: #fff;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
-  background-color: transparent;
+  color: #000000;
+  background-color: #fff0f0;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
