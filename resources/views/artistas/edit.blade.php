@@ -1,47 +1,38 @@
 
-@extends('layouts.layout')
+                    {{--Inicio modal--}}
+                     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                           <div class="modal-dialog">
+                         <div class="modal-content">
+                               <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                 <h4 class="modal-title custom_align" id="heading-user-show">User edit</h4>
+                           </div>
+                              {{--Inicio formualrio --}}
+                               {!! Form::open(array('method'=>'PUT','id'=>'form-edit')) !!}
+                               <div class="modal-body">
 
-@section('tittle_browser')
-Index
-@stop
+                                   <!-- Title Form Input -->
+                                          <div class="form-group">
+                                              {!! Form::label('nombre','Nombre: ')  !!}
+                                              {!! Form::text('nombre', '', ['class'=>'form-control'])  !!}
+                                          </div>
 
-@section('menu')
- @include('layouts.menuAdmin')
-@stop
+                                          <!-- Body Form Input -->
+                                          <div class="form-group">
+                                              {!! Form::label('genero','Género: ')  !!}
+                                              {!! Form::text('genero', '', ['class'=>'form-control'])  !!}
+                                          </div>
 
-@section('content')
-    <h1>Nuevo artista</h1>
-    <hr>
-
-    {!! Form::open(['url' => 'artistas/update/'.$artistas->id, 'method' => 'PUT']) !!}
-
-        <!-- Title Form Input -->
-        <div class="form-group">
-            {!! Form::label('nombre','Nombre: ')  !!}
-            {!! Form::text('nombre', $artistas->nombre, ['class'=>'form-control'])  !!}
-        </div>
-
-        <!-- Body Form Input -->
-        <div class="form-group">
-            {!! Form::label('genero','Género: ')  !!}
-            {!! Form::text('genero', $artistas->genero, ['class'=>'form-control'])  !!}
-        </div>
-
-        <!-- Submit -->
-        <div class="form-group">
-            {!! Form::submit('Guardar Artista', ['class'=>'btn btn-primary form-control'])  !!}
-        </div>
-    {!! Form::close() !!}
-
-    {{-- var_dump($errors->toArray()) --}}
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-@stop
+                           </div>
+                               <div class="modal-footer ">
+                              <div class="ui buttons">
+                               <button class="ui button" type="reset"  id="btn-students-cancel"  data-dismiss="modal">Cancel</button>
+                               <div class="or"></div>
+                               <button class="ui positive button" type="submit" id="btn-students-save">Edit</button>
+                             </div>
+                          {!! Form::close() !!}
+                          {{--Final del formulario--}}
+                             </div>
+                             </div>
+                       </div>
+                         </div> {{--Fin modal--}}

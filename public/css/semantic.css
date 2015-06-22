@@ -25477,7 +25477,7 @@ select.ui.dropdown {
 
 .ui.scrolling.modal {
   position: static;
-  margin: 3.5rem auto !important;
+  margin: 2.5rem auto !important;
 }
 
 @media only screen and (max-width: 992px) {

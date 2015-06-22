@@ -43,8 +43,12 @@ Route::controllers([
 ]);
 
 
+
+
 Route::group(['middleware' => 'auth'], function () {
-    Route::match(['get', 'post'],'artistas','ArtistasController@index');
+    Route::resource('artistas', 'ArtistasController');
+    Route::resource('canciones', 'SongController');
+    /*Route::match(['get', 'post'],'artistas','ArtistasController@index');
     Route::match(['get', 'post'],'artistas/create','ArtistasController@create');
     //Route::match(['get', 'put'],'artistas/update/{id}','ArtistasController@update');
     //Route::match(['get', 'post'],'artistas/edit','ArtistasController@edit');
@@ -55,5 +59,5 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::match(['get', 'post'],'articles/{id}/edit','ArticlesController@edit');
     //Route::put('articles/{id}','ArticlesController@update');
     //Route::patch('articles/{id}','ArticlesController@update');
-    //Route::delete('articles/{id}','ArticlesController@destroy');
+    //Route::delete('articles/{id}','ArticlesController@destroy');*/
 });

@@ -71,7 +71,7 @@ class ArtistasController extends Controller
         {
             abort(404);
         }
-        return view('artistas.edit', compact('artistas'));
+        return json_encode($artistas);
     }
 
     /**
@@ -87,7 +87,7 @@ class ArtistasController extends Controller
        $artistas->genero = $request->input('genero');
        $artistas->save();
 
-        return view('artistas.show', compact('artistas'));
+        return redirect('artistas');
     }
 
     /**
@@ -98,6 +98,6 @@ class ArtistasController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

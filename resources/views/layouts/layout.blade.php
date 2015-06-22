@@ -8,6 +8,7 @@
     {!! Html::style('css/bootstrap.css') !!}
     {!! Html::style('css/semantic.css') !!}
     {!! Html::style('css/style.css') !!}
+     @yield('css')
 
 
 
@@ -31,6 +32,7 @@
    {!! Html::script('/js/bootstrap.min.js') !!}
    {!! Html::script('/js/semantic.js') !!}
    {!! Html::script('/js/util.js') !!}
+    @yield('js')
 
 </body>
 </html>

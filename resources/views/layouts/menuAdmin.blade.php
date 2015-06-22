@@ -67,8 +67,8 @@
 				</li>
 				<li>
 					<a href="#about-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="About Us">
-							<span class="fa fa-users"></span>
+						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Music">
+							<span class="fa fa-music"></span>
 						</span>
 						<span class="full-nav"> About Us </span>
 					</a>

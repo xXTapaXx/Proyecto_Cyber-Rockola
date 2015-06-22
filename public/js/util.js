@@ -14,3 +14,11 @@ $(document).ready(function() {
         $('.navbar-twitch').addClass('navbar-'+$(this).data('type'));
     });
 });
+
+function crearArticulo()
+{
+    $('.modal')
+        .modal('show')
+    ;
+
+}
