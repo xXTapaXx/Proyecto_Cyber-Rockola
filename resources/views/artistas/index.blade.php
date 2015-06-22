@@ -9,6 +9,9 @@ Index
 @stop
 
 @section('content')
+    <a class="btn btn-primary btn-lg" href="{{ url('artistas/create') }}"
+       role="button">Crear articulo</a>
+
     <h1>Artistas</h1>
 
     @foreach($artistas as $artista)
@@ -18,17 +21,16 @@ Index
 
             {{--
                 <a href="{{ action('ArtistasController@show', [$artista->id]) }}"><h2>{{ $artista->nombre }}</h2></a>
-                <a href="{{ url('/artistas', $artista->id) }}"><h2>{{ $artista->nombre }}</h2></a>
+                <a href="{{ url('/artistas', $artista->id) }}"><h2>{{ $artista->nombre }}</h2></a>            
             --}}
-
+            
             <div class="body">
                 {{ $artista->genero }}
-            </div>
+            </div>   
+
+            <a href="{{ url('/artistas/delete', $artista->id) }}"><h6>Eliminar</h6></a>
+
         </article>
         <br>
     @endforeach
-<hr>
-    <a class="btn btn-primary btn-lg" href="{{ url('artistas/create') }}"
-       role="button">Crear articulo</a>
-
 @stop

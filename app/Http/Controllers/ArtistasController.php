@@ -98,6 +98,8 @@ class ArtistasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Artista::destroy($id);
+        $artistas = Artista::all();
+        return view('artistas.index', compact('artistas'));
     }
 }

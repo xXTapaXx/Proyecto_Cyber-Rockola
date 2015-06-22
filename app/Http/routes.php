@@ -55,5 +55,5 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::match(['get', 'post'],'articles/{id}/edit','ArticlesController@edit');
     //Route::put('articles/{id}','ArticlesController@update');
     //Route::patch('articles/{id}','ArticlesController@update');
-    //Route::delete('articles/{id}','ArticlesController@destroy');
+    Route::get('artistas/delete/{id}','ArtistasController@destroy');
 });

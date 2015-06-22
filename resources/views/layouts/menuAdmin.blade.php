@@ -58,11 +58,11 @@
 		<div class="">
 			<ul class="nav navbar-nav">
 				<li class="active">
-					<a href="#">
+					<a href="/home">
 						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Home">
 							<span class="glyphicon glyphicon-home"></span>
 						</span>
-						<span class="full-nav"> Home </span>
+						<span class="full-nav"> </span>
 					</a>
 				</li>
 				<li>
