@@ -4,7 +4,7 @@
                 <div class="modal-content">
                       <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title custom_align" id="heading-user-show">Student create</h4>
+                        <h4 class="modal-title custom_align" id="heading-user-show">Artist create</h4>
                   </div>
 
                    {{--Inicio formualrio --}}

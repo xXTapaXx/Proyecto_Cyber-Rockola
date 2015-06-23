@@ -107,8 +107,10 @@ class SongController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function deleteSong($id)
+    public function destroy($id)
     {
-        //
+        Song::find($id)->delete();
+
+        return redirect('canciones');
     }
 }

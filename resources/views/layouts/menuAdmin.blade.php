@@ -1,3 +1,13 @@
+<?php
+
+    $menu = array(
+    array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas'),
+    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'),
+    array('icon'=>'glyphicon glyphicon-book','title'=>'Students','url'=>'/admin/students'),
+    array('icon'=>'glyphicon glyphicon-user','title'=>'Users','url'=>'/admin/users'));
+
+    ?>
+
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
             <ul class="nav navbar-nav navbar-right">
@@ -51,36 +61,25 @@
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">
-				<span class="small-nav"> <span class="logo">  UTN  </span>> </span>
-				<span class="full-nav"> < Bootsnipp > </span>
+				<span class="small-nav"> <span class="logo">  UTN  </span> </span>
 			</a>
 		</div>
 		<div class="">
 			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="#">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Home">
-							<span class="glyphicon glyphicon-home"></span>
-						</span>
-						<span class="full-nav"> Home </span>
-					</a>
-				</li>
-				<li>
-					<a href="#about-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Music">
-							<span class="fa fa-music"></span>
-						</span>
-						<span class="full-nav"> About Us </span>
-					</a>
-				</li>
-				<li>
-					<a href="#contact-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Contact Us">
-							<span class="glyphicon glyphicon-comment"></span>
-						</span>
-						<span class="full-nav"> Contact Us </span>
-					</a>
-				</li>
+				@foreach($menu as $item)
+              @if($ruta == $item['title'])
+                     <li class="active">
+               @else
+                       <li>
+               @endif
+                       <a href="{{$item['url']}}">
+                        <span class="small-nav" data-toggle="tooltip" data-placement="right" title="{{$item['title']}}">
+                            <span class="{{$item['icon']}}"></span>
+                        </span>
+
+                    </a>
+                       </li>
+            @endforeach
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>

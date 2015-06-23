@@ -1,3 +1,5 @@
+// se activa cuando el documento este cargado
+var idDelete = null;
 $(document).ready(function () {
 
 
@@ -56,4 +58,15 @@ $(document).ready(function () {
 
         }
     };
+
+    $("a[data-title=assignDelete]").click(function (){
+        idDelete = this.id;
+    });
+    // se activa cuando se quiere editar algun usuario
+    $("a[data-title=delete]").click(function () {
+
+        var id = idDelete;
+
+        $('#form'+id).submit();
+    });
 });
