@@ -16,12 +16,33 @@ Index
 
 
     <br/><br/>
+     <table class="ui celled table">
+               <thead>
+                          <tr>
+                           <th>Name</th>
+                           <th>Route</th>
+                           <th>Options</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+         @foreach($songs as $song)
+                <tr>
+                 <td>{{ $song->name }}</td>
+                  <td>{{ $song->route }}</td>
+                <td>
+                <a class="ui inverted orange button" id="{{$song->id}}" data-title="edit" data-toggle="modal" data-target="#edit" data-placement="top"><i class="icon Edit"></i>Edit</a>
 
-    {!! Form::open(['route' => 'canciones.store',
-                    'method' => 'POST',
-                    'class' => 'dropzone',
-                    'id' => 'my-dropzone',
-                    'files' => true]) !!}
+
+                 </div>
+                </td>
+                </tr>
+         @endforeach
+
+         {!! $songs->render() !!}
+                  </tbody>
+
+                </table>
+
 
 
 @stop
@@ -39,4 +60,4 @@ Index
 @stop
 
 @include('songs.create')
-
+@include('songs.edit')
