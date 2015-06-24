@@ -1,45 +1,53 @@
-@extends('layouts.layout')
+{{--Inicio modal--}}
+            <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="create" aria-hidden="true">
+                  <div class="modal-dialog">
+                <div class="modal-content">
+                      <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title custom_align" id="heading-user-show">Student create</h4>
+                  </div>
 
-@section('tittle_browser')
-Index
-@stop
+                   {{--Inicio formualrio --}}
+                  {!! Form::open(['url' => 'artistas']) !!}
 
-@section('menu')
- @include('layouts.menuAdmin')
-@stop
+                      <div class="modal-body">
 
-@section('content')
-    <h1>Nuevo artista</h1>
-    <hr>
+                    <!-- Title Form Input -->
+                                 <div class="form-group">
+                                     {!! Form::label('nombre','Nombre: ')  !!}
+                                     {!! Form::text('nombre', null , ['class'=>'form-control'])  !!}
+                                 </div>
 
-    {!! Form::open(['url' => 'artistas']) !!}
-        <!-- Title Form Input -->
-        <div class="form-group">
-            {!! Form::label('nombre','Nombre: ')  !!}
-            {!! Form::text('nombre', null , ['class'=>'form-control'])  !!}
-        </div>
+                                 <!-- Body Form Input -->
+                                 <div class="form-group">
+                                     {!! Form::label('genero','Género: ')  !!}
+                                     {!! Form::text('genero', null , ['class'=>'form-control'])  !!}
+                                 </div>
 
-        <!-- Body Form Input -->
-        <div class="form-group">
-            {!! Form::label('genero','Género: ')  !!}
-            {!! Form::text('genero', null , ['class'=>'form-control'])  !!}
-        </div>
+                                 <!-- Submit -->
+                                 <div class="form-group">
+                                     {!! Form::submit('Agregar Artista', ['class'=>'btn btn-primary form-control'])  !!}
+                                 </div>
+                  </div>
+                      <div class="modal-footer ">
 
-        <!-- Submit -->
-        <div class="form-group">
-            {!! Form::submit('Agregar Artista', ['class'=>'btn btn-primary form-control'])  !!}
-        </div>
-    {!! Form::close() !!}
+                      <div class="ui buttons">
+                          <button class="ui button" type="reset"  id="btn-students-cancel"  data-dismiss="modal">Cancel</button>
+                          <div class="or"></div>
+                          <button class="ui positive button" type="submit" id="btn-students-save">Save</button>
+                        </div>
+                  </div>
+                  {!! Form::close() !!}
 
-    {{-- var_dump($errors->toArray()) --}}
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+                  {{--Final del formulario--}}
 
-@stop
+                    </div>
+
+
+              </div>
+                </div> {{--Fin modal--}}
+
+
+
+
+
