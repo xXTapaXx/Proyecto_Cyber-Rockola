@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Jobs\SendSongs;
 use App\Http\Controllers\Controller;
 use App\Song;
 
@@ -17,7 +18,7 @@ class SongController extends Controller
      */
     public function index()
     {
-        $songs = Song::paginate(5);
+        $songs = Song::paginate(15);
         return view('songs.index', compact('songs'));
     }
 
@@ -43,7 +44,7 @@ class SongController extends Controller
     {
         $titulo = $request->get('titulo');
         $artista = $request->get('artista');
-        $dir = public_path().'/uploads/ ';
+        $dir = public_path().'/uploads/';
 
         $files = $request->file('file');
 
@@ -52,7 +53,7 @@ class SongController extends Controller
             $fileName = $file->getClientOriginalName();
 
             $file->move($dir,$fileName);
-            Song::insert(['name'=> $titulo, 'route'=> '/uploads/'.$fileName]);
+            Song::insert(['name'=> $titulo, 'route'=> $fileName]);
         }
 
 
@@ -112,5 +113,12 @@ class SongController extends Controller
         Song::find($id)->delete();
 
         return redirect('canciones');
+    }
+
+     public function SendSongs(Request $request)
+    {
+        
+
+        $this->dispatch(new SendSongs($request));
     }
 }

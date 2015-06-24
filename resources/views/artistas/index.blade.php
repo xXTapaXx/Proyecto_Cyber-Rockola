@@ -5,7 +5,7 @@ Index
 @stop
 
 @section('menu')
- @include('layouts.menuAdmin',array('ruta'=>'artistas'))
+ @include('layouts.menuAdmin',array('ruta'=>'Artist'))
 @stop
 
 @section('content')

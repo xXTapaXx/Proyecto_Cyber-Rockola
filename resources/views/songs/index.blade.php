@@ -5,7 +5,7 @@ Songs
 @stop
 
 @section('menu')
- @include('layouts.menuAdmin',array('ruta'=>'canciones'))
+ @include('layouts.menuAdmin',array('ruta'=>'Music'))
 @stop
 
 @section('content')

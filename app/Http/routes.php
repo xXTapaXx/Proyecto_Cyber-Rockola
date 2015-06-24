@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 
 Route::get('home', function () {
-    return view('administrator/index');
+
+    if(Auth::user()['attributes']['roll'] == "Cliente")
+        return redirect('canciones');
+    else
+        return redirect('artistas');
 });
 
 /*Route::get('auth/logout', ['as' => 'auth/logout', 'uses' => 'Auth\AuthController@getLogout'], function(){
@@ -43,7 +47,7 @@ Route::controllers([
 ]);
 
 
-
+Route::post('colas', 'SongController@SendSongs');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('artistas', 'ArtistasController');

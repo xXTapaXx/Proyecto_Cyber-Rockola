@@ -2,9 +2,7 @@
 
     $menu = array(
     array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas'),
-    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'),
-    array('icon'=>'glyphicon glyphicon-book','title'=>'Students','url'=>'/admin/students'),
-    array('icon'=>'glyphicon glyphicon-user','title'=>'Users','url'=>'/admin/users'));
+    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'));
 
     ?>
 
@@ -98,9 +96,9 @@
                @else
                        <li>
                @endif
-                       <a href="{{$item['url']}}">
-                        <span class="small-nav" data-toggle="tooltip" data-placement="right" title="{{$item['title']}}">
-                            <span class="{{$item['icon']}}"></span>
+                       <a href="{!! $item['url'] !!}">
+                        <span class="small-nav" data-toggle="tooltip" data-placement="right" title="{!! $item['title'] !!}">
+                            <span class="{!! $item['icon'] !!}"></span>
                         </span>
 
                     </a>
