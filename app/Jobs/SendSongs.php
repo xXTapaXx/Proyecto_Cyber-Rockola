@@ -29,6 +29,6 @@ class SendSongs extends Job implements SelfHandling, ShouldQueue
      */
     public function handle()
     {
-        //
+        system('mplayer /var/www/html/Proyecto/public/uploads/track02.mp3');
     }
 }
