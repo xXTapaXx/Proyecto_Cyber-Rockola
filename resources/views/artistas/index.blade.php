@@ -5,14 +5,18 @@ Index
 @stop
 
 @section('menu')
- @include('layouts.menuAdmin')
+ @include('layouts.menuAdmin',array('ruta'=>'artistas'))
 @stop
 
 @section('content')
+<<<<<<< HEAD
     <a class="btn btn-primary btn-lg" href="{{ url('artistas/create') }}"
        role="button">Crear articulo</a>
 
     <h1>Artistas</h1>
+=======
+    <h1>Artist</h1>
+>>>>>>> 7cdcf8e459d34919126692417af350909002a745
 
      <a type="button" href="#" class="col-lg-2 btn btn-success submit-button pull-right" data-title="create" data-toggle="modal" data-target="#create" data-placement="top">
                      <span class="glyphicon glyphicon-plus"></span>Crear Articulo

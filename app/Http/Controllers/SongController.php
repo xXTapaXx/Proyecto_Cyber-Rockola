@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Song;
 
 class SongController extends Controller
 {
@@ -16,7 +17,8 @@ class SongController extends Controller
      */
     public function index()
     {
-        return view('songs.index');
+        $songs = Song::paginate(5);
+        return view('songs.index', compact('songs'));
     }
 
     /**
@@ -39,15 +41,21 @@ class SongController extends Controller
 
     public function store(Request $request)
     {
-        $dir = public_path().'/uploads';
+        $titulo = $request->get('titulo');
+        $artista = $request->get('artista');
+        $dir = public_path().'/uploads/ ';
 
         $files = $request->file('file');
 
         foreach ($files as $file)
         {
             $fileName = $file->getClientOriginalName();
+
             $file->move($dir,$fileName);
+            Song::insert(['name'=> $titulo, 'route'=> '/uploads/'.$fileName]);
         }
+
+
 
     }
 
@@ -70,7 +78,12 @@ class SongController extends Controller
      */
     public function edit($id)
     {
-        //
+        $song = Song::find($id);
+        if(is_null($song))
+        {
+            abort(404);
+        }
+        return json_encode($song);
     }
 
     /**
@@ -79,9 +92,13 @@ class SongController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $song = Song::find($id);
+        $song->name = $request->input('name');
+        $song->save();
+
+        return redirect('canciones');
     }
 
     /**
@@ -90,8 +107,10 @@ class SongController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function deleteSong($id)
+    public function destroy($id)
     {
-        //
+        Song::find($id)->delete();
+
+        return redirect('canciones');
     }
 }

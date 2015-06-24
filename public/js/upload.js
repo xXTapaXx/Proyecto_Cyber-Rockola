@@ -1,44 +1,54 @@
+// se activa cuando el documento este cargado
+var idDelete = null;
 $(document).ready(function () {
 
-    /*$("#dropzone").dropzone({
-        url: "canciones/upload",
-        maxFileSize: 1000,
-        dictResponseError: "Ha ocurrido un error en el server",
-        acceptedFiles: 'image/*,.jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF,.rar,application/pdf,.psd',
-        removedfile: function (file, serverFileName) {
-            var name = file.name;
-            $.ajax({
-                type: "POST",
-                url: "canciones/",
-                data: "filename=" + name,
-                success: function (data) {
-                    var json = JSON.parse(data);
-                    if (json.res == true) {
-                        var element;
-                        (element = file.previewElement) != null ?
-                            element.parentNode.removeChild(file.previewElement) :
-                            false;
 
-                    }
-                }
+    // se activa cuando se quiere editar algun usuario
+    $("a[data-title=edit]").click(function () {
+
+        var id = this.id;
+
+        // obtiene los datos del usuario para editar
+        $.get(this.baseURI + '/' + id + '/edit', function (data) {
+            data = JSON.parse(data);
+            // variables
+            var name = data.name;
+
+
+            // recorre el formualario de edit para poder igualar los campos con las variables
+            $('#form-editSongs').each(function () {
+
+                // se igualan los campos del formualario con las variables
+                this.action = this.action + '/' + data.id;
+                this.elements.namedItem('name').value = name;
+
             });
-        }
-    });*/
+
+
+        });
+    });
+
+
 
     Dropzone.options.myDropzone = {
 
         // Prevents Dropzone from uploading dropped files immediately
-        autoProcessQueue: true,
+        autoProcessQueue: false,
         uploadMultiple: true,
         maxFilesize: 100,
-        maxFiles: 5,
-        acceotedFiles: 'image/*,application/pdf,.psd,.mp3,.mp4',
+        maxFiles: 1,
+
 
         init: function() {
-
+            var submitButton = document.querySelector("#submit-all");
             myDropzone = this; // closure
 
-            myDropzone.processQueue();
+            submitButton.addEventListener("click", function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                myDropzone.processQueue();
+            });
+
 
             // You might want to show the submit button only when
             // files are dropped here:
@@ -48,4 +58,15 @@ $(document).ready(function () {
 
         }
     };
+
+    $("a[data-title=assignDelete]").click(function (){
+        idDelete = this.id;
+    });
+    // se activa cuando se quiere editar algun usuario
+    $("a[data-title=delete]").click(function () {
+
+        var id = idDelete;
+
+        $('#form'+id).submit();
+    });
 });
