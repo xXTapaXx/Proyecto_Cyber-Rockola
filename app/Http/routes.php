@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('search/autocomplete', 'ClientesController@autocomplete');
+
+
+
+
+
+
 Route::get('/', function () {
     return redirect('welcome');
 });

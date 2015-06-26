@@ -64,6 +64,24 @@ class ClientesController extends Controller
         return view('clientes.index', compact('songs','artistas','songsTitle'));
     }
 
+    public function autocomplete(){
+
+    $term = \Input::get('term');
+    
+    $results = array();
+    
+    $queries = \DB::table('artistas')
+        ->where('nombre', 'LIKE', '%'.$term.'%')
+        ->orWhere('nombre', 'LIKE', '%'.$term.'%')
+        ->take(5)->get();
+    
+    foreach ($queries as $query)
+    {
+        $results[] = [ 'id' => $query->id, 'value' => $query->nombre];
+    }
+    return \Response::json($results);
+    }
+
     public function show($id)
     {
         

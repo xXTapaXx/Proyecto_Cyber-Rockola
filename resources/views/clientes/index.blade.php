@@ -61,6 +61,9 @@ Songs
                                <button class="ui positive button" type="submit" id="btn-students-save">Search</button>
                              </div>
                           {!! Form::close() !!}
+
+                         
+
           </div>
           </td>
         </tr>
@@ -112,6 +115,20 @@ Songs
 
 
 
+{!! Form::open(['action' => ['ClientesController@autocomplete'], 'method' => 'GET']) !!}
+    {!! Form::text('q', '', ['id' =>  'q', 'placeholder' =>  'Enter name']) !!}
+    {!! Form::submit('Search', array('class' => 'button expand')) !!}
+{!! Form::close() !!}
+
+
+
+
+
+
+
+
+
+
 <?php echo $songs->render(); ?>
 
 
@@ -126,6 +143,11 @@ Songs
 @stop
 
 @section('js')
+
+
+
+{!! Html::script('/js/jquery-2.1.4 .js') !!}
+{!! Html::script('/js/jquery-ui.js') !!}
  {!! Html::script('/js/dropzone.js') !!}
  {!! Html::script('/js/artistas.js') !!}
   {!! Html::script('/js/upload.js') !!}
