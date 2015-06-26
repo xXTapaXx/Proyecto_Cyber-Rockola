@@ -547,7 +547,7 @@ h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.33em;
   margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
-  margin: calc(2rem -  0.165em ) 0em 1rem;
+  margin: calc(2rem -  0.165em ) 1em 1rem;
   font-weight: bold;
   padding: 0em;
 }
@@ -9079,6 +9079,7 @@ img.ui.bordered.image {
 ---------------------*/
 
 .ui.input {
+    margin-bottom: 10px;
   position: relative;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -9088,6 +9089,7 @@ img.ui.bordered.image {
 }
 
 .ui.input input {
+
   margin: 0em;
   max-width: 100%;
   -webkit-box-flex: 0;

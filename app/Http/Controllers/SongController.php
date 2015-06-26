@@ -115,10 +115,12 @@ class SongController extends Controller
         return redirect('canciones');
     }
 
-     public function SendSongs(Request $request)
+     public function SendSongs($id)
     {
         
 
-        $this->dispatch(new SendSongs($request));
+        $this->dispatch(new SendSongs($id));
+
+        return $id;
     }
 }

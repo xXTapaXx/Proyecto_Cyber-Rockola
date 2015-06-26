@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('home', function () {
 
-    if(Auth::user()['attributes']['roll'] == "Cliente")
+    if(Auth::user()['attributes']['roll'] == "Administrator")
         return redirect('canciones');
     else
         return redirect('artistas');
@@ -36,8 +36,8 @@ Route::get('home', function () {
 //Route::get('artistas/create', 'ArtistasController@create');
 
 
-Route::get('admin', function () {
-    return view('administrator.index');
+Route::get('login', function () {
+    return view('auth.index');
 });
 
 
@@ -47,7 +47,9 @@ Route::controllers([
 ]);
 
 
-Route::post('colas', 'SongController@SendSongs');
+
+
+Route::get('colas/{id}', 'SongController@SendSongs');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('artistas', 'ArtistasController');
