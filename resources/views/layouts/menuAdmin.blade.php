@@ -26,11 +26,10 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>Nombre Apellido</strong></p>
-                                        <p class="text-left small">correoElectronico@email.com</p>
-                                        <p class="text-left">
-                                            <a href="#" class="btn btn-primary btn-block btn-sm">Actualizar Datos</a>
-                                        </p>
+                                        <p class="text-left"><strong>{!! Auth::user()['attributes']['roll'] !!}</strong></p>
+                                        <p class="text-left">{!! Auth::user()['attributes']['name'] !!}</p>
+                                        <p class="text-left small">{!! Auth::user()['attributes']['email'] !!}</p>
+
                                     </div>
                                 </div>
                             </div>
