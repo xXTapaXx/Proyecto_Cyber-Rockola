@@ -25,7 +25,7 @@ class ClientesController extends Controller
         $search = array('artistas','titulo');
         $songs = ArtistSong::join('artistas','artistSong.idArtist','=','artistas.id')
             ->join('songs','artistSong.idSong','=','songs.id')
-            ->select('songs.name','songs.id','artistas.nombre','artistas.genero')
+            ->select('songs.name','songs.id','songs.route','artistas.nombre','artistas.genero')
             ->paginate(15);
 
         //return view('songs.index', compact('songs','artistas'));
@@ -75,13 +75,13 @@ class ClientesController extends Controller
         if($option == 'Artist')
             return ArtistSong::join('artistas','artistSong.idArtist','=','artistas.id')
                 ->join('songs','artistSong.idSong','=','songs.id')
-                ->select('songs.name','songs.id','artistas.nombre','artistas.genero')
+                ->select('songs.name','songs.id','songs.route','artistas.nombre','artistas.genero')
                 ->where('artistas.nombre','=',$search)
                 ->paginate(15);
             else
                 return ArtistSong::join('artistas','artistSong.idArtist','=','artistas.id')
                     ->join('songs','artistSong.idSong','=','songs.id')
-                    ->select('songs.name','songs.id','artistas.nombre','artistas.genero')
+                    ->select('songs.name','songs.id','songs.route','artistas.nombre','artistas.genero')
                 ->where('songs.name','=',$search)
              ->paginate(15);
     }

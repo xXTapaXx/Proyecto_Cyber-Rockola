@@ -51,7 +51,7 @@ Songs
                                       'id' => 'form'.$song->id]) !!}
                      <div class="ui buttons">
           
-                  <a class="ui inverted blue button" id="{{$song->id}}" data-title="send" data-toggle="modal" data-target="#send" data-placement="top"><i class="icon Edit"></i>Send</a>
+                  <a class="ui inverted blue button" id="{{$song->route}}" data-title="send" ><i class="icon Edit"></i>Send</a>
                 </div>
 
                  </div>

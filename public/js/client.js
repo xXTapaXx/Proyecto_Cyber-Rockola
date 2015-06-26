@@ -7,6 +7,24 @@ $(document).ready(function () {
         $('#btnSearch').text(search);
     });
 
+    $("a[data-title=send]").click(function (){
+        $.get(this.baseURI + "/colas/" + this.id , function (data) {
+
+        });
+
+
+    });
+
+    function reloadBtn()
+    {
+        $("a[data-title=send]").click(function (){
+            $.get(this.baseURI + "/colas/" + this.id , function (data) {
+
+            });
+
+
+        });
+    }
     $('#inputSearch').keyup(function(e){
         if(e.keyCode == 13)
         {
@@ -23,12 +41,12 @@ $(document).ready(function () {
                     for($i = 0; $i < data.data.length; $i++)
                     {
                         $table += '<tr><td>' + data.data[$i].name + '</td><td>'+ data.data[$i].nombre +'</td><td>'+ data.data[$i].genero +'</td>';
-                        $table += '<td><a class="ui inverted blue button" id="'+data.data[$i].id+'" data-title="send" data-toggle="modal" data-target="#send" data-placement="top"><i class="icon Edit"></i>Send</a></td></tr>';
+                        $table += '<td><a class="ui inverted blue button" id="'+data.data[$i].route+'" data-title="send"><i class="icon Edit"></i>Send</a></td></tr>';
                     }
                     $table += "</tbody>";
 
                     document.getElementById('tableIndex').innerHTML = $table;
-
+                    reloadBtn();
 
 
 

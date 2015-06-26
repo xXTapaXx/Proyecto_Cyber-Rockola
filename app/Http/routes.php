@@ -54,7 +54,7 @@ Route::get('clientes/search/{option}/{search}','ClientesController@searchArtist'
 
 
 
-Route::get('colas/{id}', 'SongController@SendSongs');
+Route::get('clientes/colas/{id}', 'SongController@SendSongs');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('artistas', 'ArtistasController');
