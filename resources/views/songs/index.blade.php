@@ -66,6 +66,7 @@ Songs
 
 @section('js')
  {!! Html::script('/js/dropzone.js') !!}
+ {!! Html::script('/js/artistas.js') !!}
   {!! Html::script('/js/upload.js') !!}
 @stop
 

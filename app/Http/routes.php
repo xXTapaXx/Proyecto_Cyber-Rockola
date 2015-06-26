@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +35,8 @@ Route::get('home', function () {
 //Route::get('artistas', 'ArtistasController@index');
 //Route::get('artistas/create', 'ArtistasController@create');
 
+    Route::get('clientes/search/{id}', 'ClientesController@search');
+
 
 Route::get('admin', function () {
     return view('administrator.index');
@@ -45,13 +47,18 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
-
+Route::get('canciones/findAllArtist', ['as' => 'todos', 'uses' => 'SongController@findAllArtist']);
+Route::get('clientes/search/{id}', ['as' => 'search', 'uses' => 'ClientesController@search']);
 
 Route::post('colas', 'SongController@SendSongs');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('artistas', 'ArtistasController');
     Route::resource('canciones', 'SongController');
+    Route::resource('clientes', 'ClientesController');
+
+    
+
    // Route::match(['get', 'post'],'artistas','ArtistasController@index');
    // Route::match(['get', 'post'],'artistas/create','ArtistasController@create');
     //Route::match(['get', 'put'],'artistas/update/{id}','ArtistasController@update');
