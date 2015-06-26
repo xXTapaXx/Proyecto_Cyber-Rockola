@@ -72,6 +72,10 @@
 </div>
 @stop
 
+@section('css')
+ {!! Html::style('/css/login.css') !!}
+@stop
+
 @section('js')
  {!! Html::script('/js/login.js') !!}
 @stop

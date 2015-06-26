@@ -2,8 +2,7 @@
 
     $menu = array(
     array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas'),
-    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'),
-    array('icon'=>'fa fa-user','title'=>'Cliente','url'=>'clientes'));
+    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'));
 
     ?>
 
@@ -65,32 +64,6 @@
 		</div>
 		<div class="">
 			<ul class="nav navbar-nav">
-
-				<li class="active">
-					<a href="/home">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Home">
-							<span class="glyphicon glyphicon-home"></span>
-						</span>
-						<span class="full-nav"> </span>
-					</a>
-				</li>
-				<li>
-					<a href="#about-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Music">
-							<span class="fa fa-music"></span>
-						</span>
-						<span class="full-nav"> About Us </span>
-					</a>
-				</li>
-				<li>
-					<a href="#contact-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Contact Us">
-							<span class="glyphicon glyphicon-comment"></span>
-						</span>
-						<span class="full-nav"> Contact Us </span>
-					</a>
-				</li>
-
 				@foreach($menu as $item)
               @if($ruta == $item['title'])
                      <li class="active">
@@ -105,7 +78,6 @@
                     </a>
                        </li>
             @endforeach
-
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>
