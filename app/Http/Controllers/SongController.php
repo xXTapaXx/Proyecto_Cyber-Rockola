@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Jobs\SendSongs;
 use App\Http\Controllers\Controller;
 use App\Song;
+use App\Artista;
 
 class SongController extends Controller
 {
@@ -18,8 +19,12 @@ class SongController extends Controller
      */
     public function index()
     {
+        //$artistas = \DB::table('artistas')->orderBy('id', 'asc')->lists('nombre','genero','id');
+        //$artistas = Artista::all();
+        $artistas = \DB::table('artistas')->lists('nombre');
+
         $songs = Song::paginate(15);
-        return view('songs.index', compact('songs'));
+        return view('songs.index', compact('songs','artistas'));
     }
 
     /**
@@ -44,6 +49,7 @@ class SongController extends Controller
     {
         $titulo = $request->get('titulo');
         $artista = $request->get('artista');
+
         $dir = public_path().'/uploads/';
 
         $files = $request->file('file');
@@ -53,7 +59,7 @@ class SongController extends Controller
             $fileName = $file->getClientOriginalName();
 
             $file->move($dir,$fileName);
-            Song::insert(['name'=> $titulo, 'route'=> $fileName]);
+            Song::insert(['name'=> $titulo, 'nameArtista'=> $artista, 'route'=> $fileName]);
         }
 
 
@@ -122,5 +128,11 @@ class SongController extends Controller
         $this->dispatch(new SendSongs($id));
 
         return $id;
+    }
+
+    public function findAllArtist()
+    {
+        $artistas = Artista::all();
+        return json_encode($artistas);
     }
 }

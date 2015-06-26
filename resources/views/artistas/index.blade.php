@@ -9,7 +9,14 @@ Index
 @stop
 
 @section('content')
+
+    <a class="btn btn-primary btn-lg" href="{{ url('artistas/create') }}"
+       role="button">Crear articulo</a>
+
+    <h1>Artistas</h1>
+
     <h1>Artist</h1>
+
 
      <a type="button" href="#" class="col-lg-2 btn btn-success submit-button pull-right" data-title="create" data-toggle="modal" data-target="#create" data-placement="top">
                      <span class="glyphicon glyphicon-plus"></span>Crear Articulo
@@ -33,15 +40,32 @@ Index
            <a class="ui inverted orange button" id="{{$artista->id}}" data-title="edit" data-toggle="modal" data-target="#edit" data-placement="top"><i class="icon Edit"></i>Edit</a>
 
 
+
+            {{--
+                <a href="{{ action('ArtistasController@show', [$artista->id]) }}"><h2>{{ $artista->nombre }}</h2></a>
+                <a href="{{ url('/artistas', $artista->id) }}"><h2>{{ $artista->nombre }}</h2></a>            
+            
+            
+            <div class="body">
+                {{ $artista->genero }}
+            </div>   
+
+            <a href="{{ url('/artistas/delete', $artista->id) }}"><h6>Eliminar</h6></a>--}}
+
+        </article>
+        <br>
+   @endforeach
+
             </div>
            </td>
            </tr>
-    @endforeach
+   
              </tbody>
 
            </table>
 
 <hr>
+
 
 @stop
 

@@ -99,5 +99,15 @@ class ArtistasController extends Controller
     public function destroy($id)
     {
 
+        Artista::destroy($id);
+        $artistas = Artista::all();
+        return view('artistas.index', compact('artistas'));
+
+    }
+
+    public function findAllArtist()
+    {
+        $artistas = Artista::all();
+        return json_encode($artistas);
     }
 }

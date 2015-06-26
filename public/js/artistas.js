@@ -47,4 +47,51 @@ $(document).ready(function () {
     });
 
 
+    $("a[data-title=create]").click(function () {
+
+        //var id = this.id;
+
+        // obtiene los datos del usuario para editar
+        $.get(this.baseURI + '/findAllArtist', function (data) {
+                data = JSON.parse(data);
+            // variables
+            var name = data.nombre;
+            var gender = data.genero;
+
+            // recorre el formualario de edit para poder igualar los campos con las variables
+            //$('#lista_artistas').append("<option value=\""+k+"\">"+v+"</option>");
+
+
+            $.each(data, function(i,item){
+            $('#lista_artistas').append(+i+" - "+data[i].nombre+" - "+data[i].genero+" - "+data[i].id);
+        })
+
+
+        });
+    });
+
+    /*$("#lista_artistas").click(function () {
+
+        //var id = this.id;
+
+        // obtiene los datos del usuario para editar
+        $.get(this.baseURI + '/findAllArtist', function (data) {
+                data = JSON.parse(data);
+            // variables
+            var name = data.nombre;
+            var gender = data.genero;
+
+            // recorre el formualario de edit para poder igualar los campos con las variables
+            //$('#lista_artistas').append("<option value=\""+k+"\">"+v+"</option>");
+
+
+            $.each(data, function(i,item){
+            $('lista_artistass').append("<br>"+i+" - "+data[i].nombre+" - "+data[i].genero+" - "+data[i].id);
+        })
+
+
+        });
+    });*/
+
+
 });

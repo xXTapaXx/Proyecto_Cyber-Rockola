@@ -10,7 +10,8 @@
      {!! Form::text('titulo', null , ['class'=>'form-control col-lg-6', 'placeholder' => 'Titulo de la Cancion...'])  !!}<br/>
    </div>
    <div class="form-group col-lg-6"><br/>
-     {!! Form::text('artista', null , ['class'=>'form-control col-lg-6', 'placeholder' => 'Nombre del Artista...'])  !!}<br/>
+
+     {!! Form::select('artista',$artistas, null, array('class'=>'form-control col-lg-6')) !!}
     </div>
 </div>
  <div class="dropzone-previews"></div>
