@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Artista;
 use App\Song;
+use App\ArtistSong;
 
 class ClientesController extends Controller
 {
@@ -19,11 +20,16 @@ class ClientesController extends Controller
     public function index()
     {
         //$artistas = Artista::all();
-        $artistas = \DB::table('artistas')->orderBy('id', 'asc')->lists('nombre','genero','id');
-        $songsTitle = \DB::table('songs')->orderBy('id', 'asc')->lists('name');
-        $songs = Song::paginate(3);
+        //$artistas = \DB::table('artistas')->orderBy('id', 'asc')->lists('nombre','genero','id');
+        //$songsTitle = \DB::table('songs')->orderBy('id', 'asc')->lists('name');
+        $search = array('artistas','titulo');
+        $songs = ArtistSong::join('artistas','artistSong.idArtist','=','artistas.id')
+            ->join('songs','artistSong.idSong','=','songs.id')
+            ->select('songs.name','songs.id','artistas.nombre','artistas.genero')
+            ->paginate(15);
+
         //return view('songs.index', compact('songs','artistas'));
-        return view('clientes.index', compact('songs','artistas','songsTitle'));
+        return view('clientes.index', compact('songs','search'));
     }
 
     /**
@@ -62,6 +68,22 @@ class ClientesController extends Controller
         $songs = Song::paginate(3);
         //return view('songs.index', compact('songs','artistas'));
         return view('clientes.index', compact('songs','artistas','songsTitle'));
+    }
+
+    public function searchArtist($option,$search)
+    {
+        if($option == 'Artist')
+            return ArtistSong::join('artistas','artistSong.idArtist','=','artistas.id')
+                ->join('songs','artistSong.idSong','=','songs.id')
+                ->select('songs.name','songs.id','artistas.nombre','artistas.genero')
+                ->where('artistas.nombre','=',$search)
+                ->paginate(15);
+            else
+                return ArtistSong::join('artistas','artistSong.idArtist','=','artistas.id')
+                    ->join('songs','artistSong.idSong','=','songs.id')
+                    ->select('songs.name','songs.id','artistas.nombre','artistas.genero')
+                ->where('songs.name','=',$search)
+             ->paginate(15);
     }
 
     public function show($id)

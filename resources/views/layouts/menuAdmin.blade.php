@@ -2,7 +2,8 @@
 
     $menu = array(
     array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas'),
-    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'));
+    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'),
+    array('icon'=>'fa fa-user','title'=>'Cliente','url'=>'clientes'));
 
     ?>
 
@@ -64,6 +65,8 @@
 		</div>
 		<div class="">
 			<ul class="nav navbar-nav">
+
+
 				@foreach($menu as $item)
               @if($ruta == $item['title'])
                      <li class="active">
@@ -78,6 +81,7 @@
                     </a>
                        </li>
             @endforeach
+
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>

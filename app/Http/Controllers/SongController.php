@@ -9,6 +9,7 @@ use App\Jobs\SendSongs;
 use App\Http\Controllers\Controller;
 use App\Song;
 use App\Artista;
+use App\ArtistSong;
 
 class SongController extends Controller
 {
@@ -21,10 +22,10 @@ class SongController extends Controller
     {
         //$artistas = \DB::table('artistas')->orderBy('id', 'asc')->lists('nombre','genero','id');
         //$artistas = Artista::all();
-        $artistas = \DB::table('artistas')->lists('nombre');
-
+        $artistas = Artista::lists('nombre','id');
+        $idArtistas = Artista::lists('id');
         $songs = Song::paginate(15);
-        return view('songs.index', compact('songs','artistas'));
+        return view('songs.index', compact('songs','artistas','idArtistas'));
     }
 
     /**
@@ -59,7 +60,8 @@ class SongController extends Controller
             $fileName = $file->getClientOriginalName();
 
             $file->move($dir,$fileName);
-            Song::insert(['name'=> $titulo, 'nameArtista'=> $artista, 'route'=> $fileName]);
+            $idSong = Song::insertGetId(['name'=> $titulo,'route'=> $fileName]);
+            ArtistSong::insert(['idArtist' => $artista, 'idSong' => $idSong ]);
         }
 
 
@@ -116,8 +118,10 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
-        Song::find($id)->delete();
+       $song = Song::find($id);
 
+        if($song)
+            $song->delete();
         return redirect('canciones');
     }
 

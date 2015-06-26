@@ -47,8 +47,10 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+/*
 Route::get('canciones/findAllArtist', ['as' => 'todos', 'uses' => 'SongController@findAllArtist']);
-Route::get('clientes/search/{id}', ['as' => 'search', 'uses' => 'ClientesController@search']);
+Route::get('clientes/search/{id}', ['as' => 'search', 'uses' => 'ClientesController@search']);*/
+Route::get('clientes/search/{option}/{search}','ClientesController@searchArtist');
 
 
 
