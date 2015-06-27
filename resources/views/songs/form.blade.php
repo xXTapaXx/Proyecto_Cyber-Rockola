@@ -11,7 +11,7 @@
    </div>
    <div class="form-group col-lg-6"><br/>
 
-     {!! Form::select('artista',$artistas, null, array('class'=>'form-control col-lg-6')) !!}
+     {!! Form::select('artista',$artistas, null , array('class'=>'form-control col-lg-6')) !!}
     </div>
 </div>
  <div class="dropzone-previews"></div>

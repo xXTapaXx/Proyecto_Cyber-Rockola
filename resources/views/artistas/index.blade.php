@@ -10,16 +10,11 @@ Index
 
 @section('content')
 
-    <a class="btn btn-primary btn-lg" href="{{ url('artistas/create') }}"
-       role="button">Crear articulo</a>
-
-    <h1>Artistas</h1>
-
     <h1>Artist</h1>
 
 
      <a type="button" href="#" class="col-lg-2 btn btn-success submit-button pull-right" data-title="create" data-toggle="modal" data-target="#create" data-placement="top">
-                     <span class="glyphicon glyphicon-plus"></span>Crear Articulo
+                     <span class="glyphicon glyphicon-plus"></span>New Artist
                 </a>
 
                 <br/><br/>
@@ -50,7 +45,7 @@ Index
                 {{ $artista->genero }}
             </div>   
 
-            <a href="{{ url('/artistas/delete', $artista->id) }}"><h6>Eliminar</h6></a>--}}
+            <a href="{{ url('/artistas/delete', $artista->id) }}"><h6>Delete</h6></a>--}}
 
         </article>
         <br>

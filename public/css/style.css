@@ -1,4 +1,7 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.oculto{
+    display: none;
+}
 body {
     padding-top: 15px;
     padding-left: 65px;
@@ -163,4 +166,10 @@ body {
 .icon-size
 {
     font-size: 87px;
+}
+
+
+#ErrorMsg
+{
+    Color: red;
 }

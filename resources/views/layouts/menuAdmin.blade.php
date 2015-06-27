@@ -26,11 +26,10 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>Nombre Apellido</strong></p>
-                                        <p class="text-left small">correoElectronico@email.com</p>
-                                        <p class="text-left">
-                                            <a href="#" class="btn btn-primary btn-block btn-sm">Actualizar Datos</a>
-                                        </p>
+                                        <p class="text-left"><strong>{!! Auth::user()['attributes']['roll'] !!}</strong></p>
+                                        <p class="text-left">{!! Auth::user()['attributes']['name'] !!}</p>
+                                        <p class="text-left small">{!! Auth::user()['attributes']['email'] !!}</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -66,30 +65,6 @@
 		<div class="">
 			<ul class="nav navbar-nav">
 
-				<li class="active">
-					<a href="/home">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Home">
-							<span class="glyphicon glyphicon-home"></span>
-						</span>
-						<span class="full-nav"> </span>
-					</a>
-				</li>
-				<li>
-					<a href="#about-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Music">
-							<span class="fa fa-music"></span>
-						</span>
-						<span class="full-nav"> About Us </span>
-					</a>
-				</li>
-				<li>
-					<a href="#contact-us">
-						<span class="small-nav" data-toggle="tooltip" data-placement="right" title="Contact Us">
-							<span class="glyphicon glyphicon-comment"></span>
-						</span>
-						<span class="full-nav"> Contact Us </span>
-					</a>
-				</li>
 
 				@foreach($menu as $item)
               @if($ruta == $item['title'])

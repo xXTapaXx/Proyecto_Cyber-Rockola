@@ -3,16 +3,27 @@ var idDelete = null;
 $(document).ready(function () {
 
 
-$(function()
-{
-     $( "#q" ).autocomplete({
-      source: "search/autocomplete",
-      minLength: 3,
+
+$('#Artist').click(function(e){
+     $( "#inputSearch" ).autocomplete({
+      source: "search/autocompleteArtistas",
+      minLength: 1,
       select: function(event, ui) {
-        $('#q').val(ui.item.value);
+        $('#inputSearch').val(ui.item.value);
       }
     });
-})
+ })
+
+$('#Title').click(function(e){
+     $( "#inputSearch" ).autocomplete({
+      source: "search/autocompleteTitle",
+      minLength: 1,
+      select: function(event, ui) {
+        $('#inputSearch').val(ui.item.value);   
+    }
+    });
+ })
+
 
 
     // se activa cuando se quiere editar algun usuario
