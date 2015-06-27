@@ -8,9 +8,12 @@ Songs
  @include('layouts.menuAdmin',array('ruta'=>'Music'))
 @stop
 
+
+
 @section('content')
     <h1>Songs</h1>
 
+@include('errors.list')
      <a type="button" href="#" class="col-lg-2 btn btn-success submit-button pull-right" data-title="create" data-toggle="modal" data-target="#create" data-placement="top">
        <span class="glyphicon glyphicon-plus"></span>Subir Cancion</a>
 

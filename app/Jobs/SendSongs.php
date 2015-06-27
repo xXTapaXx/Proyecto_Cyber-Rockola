@@ -32,7 +32,7 @@ class SendSongs extends Job implements SelfHandling, ShouldQueue
     public function handle()
     {
 
-
-        system('mplayer /var/www/html/Proyecto/public/uploads/"'.$this->id.'"');
+        system('mplayer /home/elias/Desktop/softwareLibre/proyecto_1/Proyecto_Cyber-Rockola/public/uploads/"'.$this->id.'"');
+        //system('mplayer /var/www/html/Proyecto/public/uploads/"'.$this->id.'"');
     }
 }

@@ -64,7 +64,7 @@ class ClientesController extends Controller
         $artistas = Artista::where('nombre', '=', $search);
       
 
-        $songs = Song::paginate(3);
+        $songs = Song::paginate(15);
         //return view('songs.index', compact('songs','artistas'));
         return view('clientes.index', compact('songs','artistas','songsTitle'));
     }
@@ -77,7 +77,7 @@ class ClientesController extends Controller
     $queries = \DB::table('artistas')
         ->where('nombre', 'LIKE', '%'.$term.'%')
         ->orWhere('nombre', 'LIKE', '%'.$term.'%')
-        ->take(5)->get();
+        ->take(10)->get();
     foreach ($queries as $query)
     {
         $results[] = [ 'id' => $query->id, 'value' => $query->nombre];
@@ -92,7 +92,7 @@ class ClientesController extends Controller
     $queries = \DB::table('songs')
         ->where('name', 'LIKE', '%'.$term.'%')
         ->orWhere('name', 'LIKE', '%'.$term.'%')
-        ->take(5)->get();
+        ->take(10)->get();
     foreach ($queries as $query)
     {
         $results[] = [ 'id' => $query->id, 'value' => $query->name];

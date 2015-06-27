@@ -6,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title custom_align" id="heading-user-show">Artist create</h4>
                   </div>
-
+               
                    {{--Inicio formualrio --}}
                   {!! Form::open(['url' => 'artistas']) !!}
 
@@ -38,6 +38,7 @@
                         </div>
                   </div>
                   {!! Form::close() !!}
+                  @include('errors.list')
 
                   {{--Final del formulario--}}
 
