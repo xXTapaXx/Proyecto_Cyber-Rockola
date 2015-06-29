@@ -54,6 +54,7 @@ $(document).ready(function () {
             // files are dropped here:
             this.on("addedfile", function() {
                 // Show submit button here and/or inform user to click it.
+                
             });
 
         }

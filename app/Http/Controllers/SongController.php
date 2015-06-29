@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CreateSongRequest;
 use App\Jobs\SendSongs;
 use App\Http\Controllers\Controller;
 use App\Song;
@@ -52,7 +53,7 @@ class SongController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(CreateSongRequest $request)
     {
         $titulo = $request->get('titulo');
         $artista = $request->get('artista');
@@ -109,6 +110,12 @@ class SongController extends Controller
      */
     public function update($id, Request $request)
     {
+        $rules=
+        [
+            'name' => 'required'
+        ];
+        $this->validate($request, $rules);
+
         $song = Song::find($id);
         $song->name = $request->input('name');
         $song->save();

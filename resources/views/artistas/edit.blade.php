@@ -31,6 +31,7 @@
                                <button class="ui positive button" type="submit" id="btn-students-save">Edit</button>
                              </div>
                           {!! Form::close() !!}
+                          
                           {{--Final del formulario--}}
                              </div>
                              </div>

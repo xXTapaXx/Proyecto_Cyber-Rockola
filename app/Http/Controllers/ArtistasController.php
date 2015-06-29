@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CreateArtistaRequest;
 use App\Http\Controllers\Controller;
 use App\Artista;
 
@@ -43,7 +44,7 @@ class ArtistasController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateArtistaRequest $request)
     {
         Artista::create($request->all());
         return redirect('artistas');
@@ -87,7 +88,7 @@ class ArtistasController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id, Request $request)
+    public function update($id, CreateArtistaRequest $request)
     {
        $artistas = Artista::find($id);
        $artistas->nombre = $request->input('nombre');

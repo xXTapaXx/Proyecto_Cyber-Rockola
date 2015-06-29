@@ -1,4 +1,5 @@
 <div class="dz-message">
+
  Drag and Drop or Click here for upload the music
 </div>
 
@@ -15,3 +16,4 @@
     </div>
 </div>
  <div class="dropzone-previews"></div>
+

@@ -18,10 +18,10 @@ class SendSongs extends Job implements SelfHandling, ShouldQueue
      * @return void
      */
 
-    public  $id;
-    public function __construct($id)
+    public  $song;
+    public function __construct($parameter)
     {
-       $this->id = $id;
+       $this->song = $parameter;
     }
 
     /**
@@ -31,8 +31,6 @@ class SendSongs extends Job implements SelfHandling, ShouldQueue
      */
     public function handle()
     {
-
-
-        system('mplayer "'.public_path().'"/uploads/"'.$this->id.'"');
+        system('mplayer "'.public_path().'"/uploads/"'.$this->song.'"');
     }
 }

@@ -5,10 +5,11 @@
                       <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title custom_align" id="heading-user-show">Songs create</h4>
+                        
                   </div>
 
                    {{--Inicio formualrio --}}
-
+                       
                       <div class="modal-body">
                          {!! Form::open(['route' => 'canciones.store',
                                              'method' => 'POST',
@@ -29,6 +30,8 @@
                   </div>
 
                     {!! Form::close() !!}
+                    
+                    
                   {{--Final del formulario--}}
 
                     </div>

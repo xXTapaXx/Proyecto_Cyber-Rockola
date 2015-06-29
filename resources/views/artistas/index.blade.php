@@ -12,7 +12,7 @@ Index
 
     <h1>Artist</h1>
 
-
+@include('errors.list')
      <a type="button" href="#" class="col-lg-2 btn btn-success submit-button pull-right" data-title="create" data-toggle="modal" data-target="#create" data-placement="top">
                      <span class="glyphicon glyphicon-plus"></span>New Artist
                 </a>
@@ -34,7 +34,7 @@ Index
            <td>
            <a class="ui inverted orange button" id="{{$artista->id}}" data-title="edit" data-toggle="modal" data-target="#edit" data-placement="top"><i class="icon Edit"></i>Edit</a>
 
-
+            
 
             {{--
                 <a href="{{ action('ArtistasController@show', [$artista->id]) }}"><h2>{{ $artista->nombre }}</h2></a>
