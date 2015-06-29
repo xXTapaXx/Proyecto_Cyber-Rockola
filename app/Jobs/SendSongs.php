@@ -32,5 +32,6 @@ class SendSongs extends Job implements SelfHandling, ShouldQueue
     public function handle()
     {
         system('mplayer "'.public_path().'"/uploads/"'.$this->song.'"');
+        
     }
 }
