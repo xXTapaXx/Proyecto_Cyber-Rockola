@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('tittle_browser')
+Login
+@stop
+
 @section('content')
 <div class="container">
 	<div class="row">

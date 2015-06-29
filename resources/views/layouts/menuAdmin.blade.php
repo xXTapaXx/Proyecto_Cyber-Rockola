@@ -2,9 +2,9 @@
 
     $menu = array(
     array('icon'=>'fa fa-dashboard','title'=>'Dashboard','url'=>'dashboard','auth'=>'dashboard'),
-    array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas','auth'=>'Administrator'),
+    array('icon'=>'fa fa-microphone','title'=>'Artist','url'=>'artistas','auth'=>'Administrator'),
     array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones','auth'=>'Administrator'),
-    array('icon'=>'fa fa-user','title'=>'Cliente','url'=>'clientes','auth'=>'Cliente'));
+    array('icon'=>'fa fa-music','title'=>'Music','url'=>'clientes','auth'=>'Cliente'));
 
     ?>
 

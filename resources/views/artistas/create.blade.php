@@ -24,10 +24,7 @@
                                      {!! Form::text('genero', null , ['class'=>'form-control'])  !!}
                                  </div>
 
-                                 <!-- Submit -->
-                                 <div class="form-group">
-                                     {!! Form::submit('Agregar Artista', ['class'=>'btn btn-primary form-control'])  !!}
-                                 </div>
+
                   </div>
                       <div class="modal-footer ">
 

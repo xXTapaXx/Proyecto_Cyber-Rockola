@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('tittle_browser')
-Index
+Dashboard
 @stop
 
 @section('menu')
@@ -18,7 +18,7 @@ Index
 		<div class="col-sm-6">
     	    <div class="hero-widget well well-sm">
                 <div class="icon">
-                     <i class="glyphicon glyphicon-user"></i>
+                     <i class="fa fa-microphone"></i>
                 </div>
                 <div class="text">
                     <var>{!! $artists !!}</var>
@@ -30,7 +30,7 @@ Index
         <div class="col-sm-6">
             <div class="hero-widget well well-sm">
                 <div class="icon">
-                     <i class="glyphicon glyphicon-star"></i>
+                     <i class="fa fa-music"></i>
                 </div>
                 <div class="text">
                     <var>{!! $songs !!}</var>

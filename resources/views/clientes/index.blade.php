@@ -51,8 +51,8 @@ Songs
                                      'class' => 'formDelete',
                                       'id' => 'form'.$song->id]) !!}
                      <div class="ui buttons">
-          
-                  <a class="ui inverted blue button" id="{{$song->route}}" data-title="send" ><i class="icon Edit"></i>Send</a>
+
+                  <a class="ui inverted blue button" id="{{$song->route}}" data-title="send" ><i class="icon Play"></i>Send</a>
                 </div>
 
                  </div>
@@ -77,7 +77,7 @@ Songs
 
 @section('css')
 
- {!! Html::style('/css/dropzone.css') !!}
+
   {!! Html::style('css/jquery-ui.css') !!}
 
 

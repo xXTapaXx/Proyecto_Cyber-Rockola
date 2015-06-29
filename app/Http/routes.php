@@ -17,6 +17,11 @@ Route::get('/', function () {
     return redirect('login');
 });
 
+    Route::get('home', function () {
+
+            return redirect('dashboard');
+    });
+
 
     Route::get('dashboard', function () {
         return view('dashboard.index');

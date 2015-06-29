@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('tittle_browser')
-Index
+Artistas
 @stop
 
 @section('menu')
