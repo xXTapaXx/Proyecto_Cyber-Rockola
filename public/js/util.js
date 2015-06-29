@@ -15,6 +15,16 @@ $(document).ready(function() {
     });
 });
 
+if($('#authRoll').text() == "Administrator")
+{
+    $('li.Cliente').remove();
+
+}
+else
+{
+    $('li.Administrator').remove();
+}
+
 function crearArticulo()
 {
     $('.modal')

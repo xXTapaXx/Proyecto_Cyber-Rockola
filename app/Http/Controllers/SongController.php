@@ -18,13 +18,19 @@ class SongController extends Controller
      *
      * @return Response
      */
+
+    public function __construct(Request $request)
+    {
+        if($request->user()['attributes']['roll'] != "Administrator")
+            abort(404);
+    }
     public function index()
     {
         //$artistas = \DB::table('artistas')->orderBy('id', 'asc')->lists('nombre','genero','id');
         //$artistas = Artista::all();
         $artistas = Artista::lists('nombre','id');
         $idArtistas = Artista::lists('id');
-        $songs = Song::paginate(15);
+        $songs = Song::paginate(5);
         return view('songs.index', compact('songs','artistas','idArtistas'));
     }
 

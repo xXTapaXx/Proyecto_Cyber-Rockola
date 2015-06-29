@@ -48,11 +48,11 @@ Songs
                 </tr>
          @endforeach
 
-         {!! $songs->render() !!}
+
                   </tbody>
 
                 </table>
-
+{!! $songs->render() !!}
 
 
 @stop

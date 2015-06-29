@@ -33,6 +33,6 @@ class SendSongs extends Job implements SelfHandling, ShouldQueue
     {
 
 
-        system('mplayer /var/www/html/Proyecto/public/uploads/"'.$this->id.'"');
+        system('mplayer "'.public_path().'"/uploads/"'.$this->id.'"');
     }
 }

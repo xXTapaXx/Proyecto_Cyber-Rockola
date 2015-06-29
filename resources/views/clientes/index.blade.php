@@ -6,7 +6,7 @@ Songs
 
 @section('menu')
  @include('layouts.menuAdmin',array('ruta'=>'Cliente'))
- {!! Html::style('css/jquery-ui.css') !!}
+
 @stop
 
 @section('content')
@@ -78,6 +78,7 @@ Songs
 @section('css')
 
  {!! Html::style('/css/dropzone.css') !!}
+  {!! Html::style('css/jquery-ui.css') !!}
 
 
 @stop
@@ -87,7 +88,6 @@ Songs
  {!! Html::script('/js/jquery-2.1.4 .js') !!}
  {!! Html::script('/js/jquery-ui.js') !!}
  {!! Html::script('/js/artistas.js') !!}
-
 @stop
 
 

@@ -5,7 +5,8 @@
 	<div class="row">
     	<div class="container" id="formContainer">
 
-          <form class="form-signin" id="login" role="form">
+          <form class="form-signin" id="login" role="form" method="POST" action="{{ url('/auth/login') }}">
+
             <h3 class="form-signin-heading">Please Sign In</h3>
             <a href="#" id="flipToRecover" class="flipLink">
               <div id="triangle-topright"></div>
@@ -27,12 +28,12 @@
             						<div class="form-group">
             							<div class="col-md-6 col-md-offset-4">
             								<button type="submit" class="btn btn-primary">Login</button>
-
             								</div>
             						</div>
           </form>
 
-          <form class="form-signin" id="recover" role="form">
+          <form class="form-signin" id="recover" role="form" method="POST" action="{{ url('/auth/register') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h3 class="form-signin-heading">  Please Sign Up</h3>
             <a href="#" id="flipToLogin" class="flipLink">
               <div id="triangle-topleft"></div>

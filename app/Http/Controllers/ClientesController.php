@@ -17,6 +17,12 @@ class ClientesController extends Controller
      *
      * @return Response
      */
+
+    public function __construct(Request $request)
+    {
+        if($request->user()['attributes']['roll'] != "Cliente")
+            abort(404);
+    }
     public function index()
     {
         //$artistas = Artista::all();
@@ -59,8 +65,8 @@ class ClientesController extends Controller
      */
     public function search($search)
     {
-        $artistas = \DB::table('artistas')->orderBy('id', 'asc')->lists('nombre','genero','id');
-        $songsTitle = \DB::table('songs')->orderBy('id', 'asc')->lists('name');
+        $artistas = Artista::orderBy('id', 'asc')->lists('nombre','genero','id');
+        $songsTitle = Song::orderBy('id', 'asc')->lists('name');
         $artistas = Artista::where('nombre', '=', $search);
       
 

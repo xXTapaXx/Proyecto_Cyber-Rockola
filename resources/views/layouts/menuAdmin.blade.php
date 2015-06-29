@@ -1,9 +1,10 @@
 <?php
 
     $menu = array(
-    array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas'),
-    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones'),
-    array('icon'=>'fa fa-user','title'=>'Cliente','url'=>'clientes'));
+    array('icon'=>'fa fa-dashboard','title'=>'Dashboard','url'=>'dashboard','auth'=>'dashboard'),
+    array('icon'=>'fa fa-user','title'=>'Artist','url'=>'artistas','auth'=>'Administrator'),
+    array('icon'=>'fa fa-music','title'=>'Music','url'=>'canciones','auth'=>'Administrator'),
+    array('icon'=>'fa fa-user','title'=>'Cliente','url'=>'clientes','auth'=>'Cliente'));
 
     ?>
 
@@ -26,7 +27,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>{!! Auth::user()['attributes']['roll'] !!}</strong></p>
+                                        <p class="text-left" id="authRoll"><strong>{!! Auth::user()['attributes']['roll'] !!}</strong></p>
                                         <p class="text-left">{!! Auth::user()['attributes']['name'] !!}</p>
                                         <p class="text-left small">{!! Auth::user()['attributes']['email'] !!}</p>
 
@@ -68,9 +69,9 @@
 
 				@foreach($menu as $item)
               @if($ruta == $item['title'])
-                     <li class="active">
+                     <li class="{!! $item['auth'] !!} active">
                @else
-                       <li>
+                       <li class="{!! $item['auth'] !!}">
                @endif
                        <a href="{!! $item['url'] !!}">
                         <span class="small-nav" data-toggle="tooltip" data-placement="right" title="{!! $item['title'] !!}">
@@ -79,6 +80,8 @@
 
                     </a>
                        </li>
+
+
             @endforeach
 
 			</ul>
