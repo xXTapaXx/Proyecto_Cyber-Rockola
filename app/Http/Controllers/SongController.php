@@ -23,7 +23,8 @@ class SongController extends Controller
     public function __construct(Request $request)
     {
         if($request->user()['attributes']['roll'] != "Administrator")
-            abort(404);
+            //abort(404);
+            abort(403);
     }
     public function index()
     {

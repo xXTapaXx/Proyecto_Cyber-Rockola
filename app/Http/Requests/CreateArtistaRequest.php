@@ -24,7 +24,7 @@ class CreateArtistaRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'nombre' => 'required|unique:artistas',
             'genero' => 'required'
         ];
     }
