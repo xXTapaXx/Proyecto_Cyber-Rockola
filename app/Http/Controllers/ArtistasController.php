@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Requests\CreateArtistaRequest;
 use App\Http\Controllers\Controller;
 use App\Artista;
+use Response;
+use View;
 
 
 class ArtistasController extends Controller
@@ -20,11 +22,15 @@ class ArtistasController extends Controller
 
     public function __construct(Request $request)
     {
+
         if($request->user()['attributes']['roll'] != "Administrator")
-            abort(404);
+            abort(403);
+           
     }
+
     public function index()
     {
+
         $artistas = Artista::all();
         return view('artistas.index', compact('artistas'));
     }
