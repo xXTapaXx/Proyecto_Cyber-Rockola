@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    // se activa cuando se quiere editar algun usuario
+   /* // se activa cuando se quiere editar algun usuario
     $("a[data-title=login]").click(function () {
         if($('#register').hasClass('oculto'))
         {
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
 
         }
-    });
+    });*/
 
     $(function(){
 

@@ -51,7 +51,7 @@ Artistas
         <br>
    @endforeach
 
-            </div>
+
            </td>
            </tr>
    

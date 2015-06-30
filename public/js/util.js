@@ -14,15 +14,25 @@ $(document).ready(function() {
         $('.navbar-twitch').addClass('navbar-'+$(this).data('type'));
     });
 });
+$("a[data-title=send]").click(function (){
+    $.get(this.baseURI + "/colas/" + this.id , function (data) {
 
+    });
+
+
+});
 if($('#authRoll').text() == "Administrator")
 {
     $('li.Cliente').remove();
+    $('li.Administrator').show();
+    $('li.Dashboard').show();
 
 }
 else
 {
     $('li.Administrator').remove();
+    $('li.Cliente').show();
+    $('li.Dashboard').show();
 }
 
 function crearArticulo()

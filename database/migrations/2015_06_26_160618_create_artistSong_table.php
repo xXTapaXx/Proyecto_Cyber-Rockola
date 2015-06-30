@@ -14,12 +14,12 @@ class CreateArtistSongTable extends Migration
     {
         Schema::create('artistSong', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idArtist');
-            $table->integer('idSong');
+            $table->integer('idArtist')->unsigned();
+            $table->integer('idSong')->unsigned();
             $table->timestamps();
 
-            $table->foreign('idArtist')->references('id')->on('artistas');
-            $table->foreign('idSong')->references('id')->on('songs');
+            //$table->foreign('idArtist')->references('id')->on('artistas');
+            //$table->foreign('idSong')->references('id')->on('songs');
         });
     }
 

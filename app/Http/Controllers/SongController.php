@@ -71,7 +71,7 @@ class SongController extends Controller
             ArtistSong::insert(['idArtist' => $artista, 'idSong' => $idSong ]);
         }
 
-
+        return redirect('canciones');
 
     }
 
@@ -138,13 +138,13 @@ class SongController extends Controller
         return redirect('canciones');
     }
 
-     public function SendSongs($id)
+     public function SendSongs($song)
     {
-        
 
-        $this->dispatch(new SendSongs($id));
 
-        return $id;
+        $this->dispatch(new SendSongs($song));
+
+        //return $id;
     }
 
     public function findAllArtist()

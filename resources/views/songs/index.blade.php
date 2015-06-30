@@ -40,9 +40,9 @@ Songs
                                      'class' => 'formDelete',
                                       'id' => 'form'.$song->id]) !!}
                      <div class="ui buttons">
-                  <a class="ui inverted red button" id="{{$song->id}}" data-title="assignDelete" data-toggle="modal" data-target="#delete" data-placement="top"><i class="icon Delete"></i>Delete</a>
-                  <div class="or"></div>
                   <a class="ui inverted blue button" id="{{$song->id}}" data-title="edit" data-toggle="modal" data-target="#edit" data-placement="top"><i class="icon Edit"></i>Edit</a>
+                  <div class="or"></div>
+                  <a class="ui inverted red button" id="{{$song->id}}" data-title="assignDelete" data-toggle="modal" data-target="#delete" data-placement="top"><i class="icon Delete"></i>Delete</a>
                   <div class="or"></div>
                    <a class="ui inverted green button" id="{{$song->route}}" data-title="send" ><i class="icon Play"></i>Send</a>
 

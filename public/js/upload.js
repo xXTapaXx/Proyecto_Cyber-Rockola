@@ -34,7 +34,7 @@ $(document).ready(function () {
 
         // Prevents Dropzone from uploading dropped files immediately
         autoProcessQueue: false,
-        uploadMultiple: true,
+        uploadMultiple: false,
         maxFilesize: 100,
         maxFiles: 1,
 

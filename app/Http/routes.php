@@ -42,7 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('canciones', 'SongController');
     Route::resource('clientes', 'ClientesController');
     Route::get('clientes/search/{option}/{search}','ClientesController@searchArtist');
-    Route::get('clientes/colas/{id}', 'SongController@SendSongs');
+    Route::get('clientes/colas/{song}', 'ClientesController@SendSongs');
+    Route::get('canciones/colas/{song}', 'SongController@SendSongs');
     Route::get('search/autocompleteArtistas', 'ClientesController@autocompleteArtistas');
     Route::get('search/autocompleteTitle', 'ClientesController@autocompleteTitle');
     Route::get('clientes/search/{id}', 'ClientesController@search');

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Artista;
 use App\Song;
 use App\ArtistSong;
+use App\Jobs\SendSongs;
 
 class ClientesController extends Controller
 {
@@ -160,5 +161,14 @@ class ClientesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function SendSongs($song)
+    {
+
+
+        $this->dispatch(new SendSongs($song));
+
+        //return $id;
     }
 }
