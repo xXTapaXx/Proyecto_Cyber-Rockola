@@ -34,31 +34,27 @@ $(document).ready(function () {
 
         // Prevents Dropzone from uploading dropped files immediately
         autoProcessQueue: false,
-        uploadMultiple: false,
+        uploadMultiple: true,
         maxFilesize: 100,
+        acceotedFiles: 'image/*,application/pdf,.psd,.mp3,.mp4',
         maxFiles: 1,
 
 
-        init: function() {
+        init: function () {
             var submitButton = document.querySelector("#submit-all");
             myDropzone = this; // closure
 
-            submitButton.addEventListener("click", function(e){
+            myDropzone.processQueue();
+            submitButton.addEventListener("click", function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 myDropzone.processQueue();
             });
-
-
-            // You might want to show the submit button only when
-            // files are dropped here:
-            this.on("addedfile", function() {
-                // Show submit button here and/or inform user to click it.
-                
+            this.on("complete", function(file){
+                setTimeout("location.href='http://localhost:8000/canciones'", 1000);
             });
-
         }
-    };
+    }
 
     $("a[data-title=assignDelete]").click(function (){
         idDelete = this.id;

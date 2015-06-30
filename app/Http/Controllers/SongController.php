@@ -54,7 +54,7 @@ class SongController extends Controller
 
 
 
-    public function store(CreateSongRequest $request)
+    public function store(Request $request)
     {
         $titulo = $request->get('titulo');
         $artista = $request->get('artista');
@@ -72,7 +72,7 @@ class SongController extends Controller
             ArtistSong::insert(['idArtist' => $artista, 'idSong' => $idSong ]);
         }
 
-        return redirect('canciones');
+
 
     }
 

@@ -5,59 +5,43 @@
 	<div class="row">
 	<div class="container" id="formContainer">
 
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
 
 					 <form class="form-signin" id="login" role="form" method="POST" action="{{ url('/auth/login') }}">
-                              						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                        <h3 class="form-signin-heading">  Please Sign Up</h3>
-                                                   <a href="#" id="flipToLogin" class="flipLink">
-                                                     <div id="triangle-topleft"></div>
-                                                   </a>
+                                <h3 class="form-signin-heading">Please Sign In</h3>
+                                <a href="#" id="flipToRecover" class="flipLink">
+                                  <div id="triangle-topright"></div>
+                                </a>
+                                <div class="form-group">
+                                							<div class="ui fluid left icon input">
+                                                              <input type="email" class="form-control col-md-6" name="email" value="{{ old('email') }}">
+                                                              <i class="users icon"></i>
+                                                            </div>
+                                						</div>
 
-                              						<div class="form-group">
-                              							<label class="col-md-4 control-label">E-Mail Address</label>
-                              							<div class="ui fluid left icon input">
-                                                            <input type="email" class="form-control col-md-6" name="email" value="{{ old('email') }}">
-                                                            <i class="users icon"></i>
-                                                          </div>
-                              						</div>
+                                						<div class="form-group">
+                                							<div class="ui fluid left icon input">
+                                							 <input class="form-control" type="password" name="password"/>
+                                							 <i class="lock icon"></i>
+                                							</div>
+                                						</div>
 
-                              						<div class="form-group">
-                              							<label class="col-md-4 control-label">Password</label>
-                              							<div class="ui fluid left icon input">
-                              							 <input class="form-control" type="password" name="password"/>
-                              							 <i class="lock icon"></i>
-                              							</div>
-                              						</div>
-
-                              						<div class="form-group">
-                              							<div class="col-md-6 col-md-offset-4">
-                              								<div class="checkbox">
-                              									<label>
-                              										<input type="checkbox" name="remember"> Remember Me
-                              									</label>
-                              								</div>
-                              							</div>
-                              						</div>
-
-                              						<div class="form-group">
-                              							<div class="col-md-6 col-md-offset-4">
-                              								<button type="submit" class="btn btn-primary">Login</button>
-
-                              								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-                              							</div>
-                              						</div>
-                              					</form>
+                                						<div class="form-group">
+                                							<div class="col-md-6 col-md-offset-4">
+                                								<button type="submit" class="btn btn-primary">Login</button>
+                                								</div>
+                                						</div>
+                                						@if (count($errors) > 0)
+                                                        						<div class="alert alert-danger">
+                                                        							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                                        							<ul>
+                                                        								@foreach ($errors->all() as $error)
+                                                        									<li>{{ $error }}</li>
+                                                        								@endforeach
+                                                        							</ul>
+                                                        						</div>
+                                                        					@endif
+                              </form>
 
                               <form class="form-signin" id="recover" role="form" method="POST" action="{{ url('/auth/register') }}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

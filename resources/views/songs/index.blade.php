@@ -54,7 +54,6 @@ Songs
                 </tr>
          @endforeach
 
-
                   </tbody>
 
                 </table>

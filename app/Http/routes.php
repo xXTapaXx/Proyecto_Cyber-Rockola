@@ -35,7 +35,6 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('dashboard','DashboardController');
     Route::resource('artistas', 'ArtistasController');

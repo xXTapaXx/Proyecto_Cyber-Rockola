@@ -22,7 +22,7 @@ class ClientesController extends Controller
     public function __construct(Request $request)
     {
         if($request->user()['attributes']['roll'] != "Cliente")
-            abort(404);
+            abort(403);
     }
     public function index()
     {
